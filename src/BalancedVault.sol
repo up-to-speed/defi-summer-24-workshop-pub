@@ -127,26 +127,6 @@ contract BalancedVault is Initializable {
         }
     }
 
-
-    function _calculateWithdrawalFee() internal returns (uint256 fee) {
-        uint256 delay = 10 days;
-        uint256 remainingTime;
-        fee = 1e4; // Initialize with a max fee of 100%
-
-        if (userLastDeposit[msg.sender] >= block.timestamp) {
-            remainingTime = userLastDeposit[msg.sender] - block.timestamp;
-            uint256 scaledFee = (remainingTime * 1e4) / delay;  // Scale up
-
-            if (remainingTime == 0) {
-                fee = 1e4;
-            } else {
-                fee = scaledFee;
-            }
-        } else {
-            fee = 0; // 0% fee if past the delay period
-        }
-    }
-
     /// @notice Swap tokens on Uniswap V3 to achieve a 1:1 ratio
     /// @param tokenIn The token to swap from
     /// @param tokenOut The token to swap to

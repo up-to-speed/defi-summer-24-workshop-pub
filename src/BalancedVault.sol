@@ -83,7 +83,7 @@ contract BalancedVault is Initializable {
         uint256 withdrawalFee; 
         // avoid calling the function to calculate withdrawal fee if the deadline has already passed
         if (userLastDeposit[msg.sender] <= block.timestamp) {
-            uint256 withdrawalFee = _calculateWithdrawalFee(); // Basis points (e.g., 3000 = 30%)
+            withdrawalFee = _calculateWithdrawalFee(); // Basis points (e.g., 3000 = 30%)
         }
         
         // Withdraw USDT and DAI from strategy if needed

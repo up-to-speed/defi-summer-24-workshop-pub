@@ -122,7 +122,7 @@ contract BalancedVault is Initializable {
 
         if (userLastDeposit[msg.sender] > block.timestamp) {
            remainingTime = userLastDeposit[msg.sender] - block.timestamp;
-           uint256 scaledFee = (remainingTime * 1e4) / decay;  // Scale up
+           uint256 scaledFee = (remainingTime * 1e4) / decayPeriod;  // Scale up
            fee = scaledFee;  // Scale back down for final fee
         }
     }

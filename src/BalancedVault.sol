@@ -82,7 +82,7 @@ contract BalancedVault is Initializable {
     function withdraw() external {
         uint256 withdrawalFee; 
         // avoid calling the function to calculate withdrawal fee if the deadline has already passed
-        if (userLastDeposit[msg.sender] <= block.timestamp) {
+        if (userLastDeposit[msg.sender] >= block.timestamp) {
             withdrawalFee = _calculateWithdrawalFee(); // Basis points (e.g., 3000 = 30%)
         }
         

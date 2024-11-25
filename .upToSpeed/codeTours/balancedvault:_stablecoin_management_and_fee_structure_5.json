@@ -1,0 +1,91 @@
+{
+    "title": "BalancedVault: Stablecoin Management and Fee Structure",
+    "id": "OVTn0hktFCaf5Io4VGW04mF89bowZCOqepLAOeKVLOg=",
+    "position": 3,
+    "steps": [
+        {
+            "type": "textOnly",
+            "description": "BalancedVault manages USDT and DAI deposits/withdrawals, maintaining a 1:1 ratio. Features: time-based withdrawal fees, Uniswap V3 for balancing, upgradability, and gas optimizations. We'll explore its core functionality and interaction with the staking contract.",
+            "title": "",
+            "id": "34"
+        },
+        {
+            "type": "highlight",
+            "description": "BalancedVault is an upgradeable contract that manages USDT and DAI. It uses OpenZeppelin and Uniswap V3 interfaces for token handling and swapping.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 1,
+                    "end": 19
+                }
+            ],
+            "title": "",
+            "id": "35"
+        },
+        {
+            "type": "highlight",
+            "description": "Key mappings track user balances and deposit times, used for balance management and fee calculations.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 22,
+                    "end": 24
+                }
+            ],
+            "title": "",
+            "id": "36"
+        },
+        {
+            "type": "highlight",
+            "description": "The `deposit` function performs input validation, sets a 10-day withdrawal deadline, and uses assembly for error handling. It checks that at least one of the input amounts is non-zero and sets a timestamp for the user's last deposit.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 42,
+                    "end": 53
+                }
+            ],
+            "title": "",
+            "id": "37"
+        },
+        {
+            "type": "highlight",
+            "description": "Contract balances pool after deposit, swapping excess tokens to maintain 1:1 USDT/DAI ratio.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 64,
+                    "end": 72
+                }
+            ],
+            "title": "",
+            "id": "38"
+        },
+        {
+            "type": "highlight",
+            "description": "The `withdraw` function handles user withdrawals with an early withdrawal fee. It calculates the fee based on time since deposit, transfers fee-adjusted amounts to the user, and updates balances. The `_calculateWithdrawalFee` function computes the fee, which decays linearly over 10 days.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 82,
+                    "end": 128
+                }
+            ],
+            "title": "",
+            "id": "39"
+        },
+        {
+            "type": "highlight",
+            "description": "`_balancePool` swaps tokens via **Uniswap V3** to maintain 1:1 ratio. It approves token spending and sets swap parameters.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 134,
+                    "end": 148
+                }
+            ],
+            "title": "",
+            "id": "40"
+        }
+    ]
+}

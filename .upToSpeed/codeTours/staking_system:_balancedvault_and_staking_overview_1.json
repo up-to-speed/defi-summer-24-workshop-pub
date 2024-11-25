@@ -1,0 +1,136 @@
+{
+    "title": "Staking System: BalancedVault and Staking Overview",
+    "id": "sIRWmnsIBZSt/hXKXvIvC4ZKwkW3rSEhdopNAPC5aoU=",
+    "position": 1,
+    "steps": [
+        {
+            "type": "textOnly",
+            "description": "This project implements a staking system for USDT and DAI stablecoins, maintaining a 1:1 ratio with time-based withdrawal penalties. Key contracts: BalancedVault.sol and Staking.sol.",
+            "title": "",
+            "id": "1"
+        },
+        {
+            "type": "highlight",
+            "description": "The `BalancedVault` contract is declared as upgradeable, inheriting from OpenZeppelin's `Initializable` contract. It imports necessary OpenZeppelin contracts for safe math operations and token standards, as well as Uniswap V3 interfaces for token management and swaps.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 1,
+                    "end": 10
+                }
+            ],
+            "title": "",
+            "id": "2"
+        },
+        {
+            "type": "highlight",
+            "description": "BalancedVault defines core components: token addresses, Uniswap interfaces, and user balance mappings.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 13,
+                    "end": 24
+                }
+            ],
+            "title": "",
+            "id": "3"
+        },
+        {
+            "type": "highlight",
+            "description": "DAI and USDT addresses are defined as IERC20 constants for standardized token interactions.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 13,
+                    "end": 14
+                }
+            ],
+            "title": "",
+            "id": "4"
+        },
+        {
+            "type": "highlight",
+            "description": "Contract declares Uniswap variables: `swapRouter` (initialized) and `positionManager` (uninitialized).",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 16,
+                    "end": 19
+                }
+            ],
+            "title": "",
+            "id": "5"
+        },
+        {
+            "type": "highlight",
+            "description": "Mappings track user data: USDT and DAI balances, and last deposit timestamp.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 21,
+                    "end": 24
+                }
+            ],
+            "title": "",
+            "id": "6"
+        },
+        {
+            "type": "highlight",
+            "description": "Constructor disables initializers, ensuring contract deployment only through proxy for upgradeability.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 26,
+                    "end": 29
+                }
+            ],
+            "title": "",
+            "id": "7"
+        },
+        {
+            "type": "highlight",
+            "description": "The `initialize` function sets up the Uniswap V3 Position Manager in this upgradeable contract.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 31,
+                    "end": 37
+                }
+            ],
+            "title": "",
+            "id": "8"
+        },
+        {
+            "type": "highlight",
+            "description": "The `deposit` function manages USDT and DAI deposits, ensuring a 1:1 ratio. It validates input amounts, reverting if both are zero.",
+            "file": "src/BalancedVault.sol",
+            "highlight": [
+                {
+                    "start": 39,
+                    "end": 50
+                }
+            ],
+            "title": "",
+            "id": "9"
+        },
+        {
+            "type": "highlight",
+            "description": "Staking contract manages user earnings and withdrawals.",
+            "file": "src/Staking.sol",
+            "highlight": [
+                {
+                    "start": 1,
+                    "end": 4
+                }
+            ],
+            "title": "",
+            "id": "10"
+        },
+        {
+            "type": "textOnly",
+            "description": "BalancedVault manages deposits and token ratios. Staking handles earnings and withdrawals. Key audit focus: contract interaction, BalancedVault upgradeability, and time-based withdrawal penalties.",
+            "title": "",
+            "id": "11"
+        }
+    ]
+}
